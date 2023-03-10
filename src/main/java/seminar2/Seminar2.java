@@ -6,13 +6,13 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+
 public class Seminar2 {
     public static void main(String[] args) {
 
         //isPalindromeOrNot();
-        //String testRes = testStringHundredTimes();
-        //System.out.println(testRes);
-        writeToFileTestStringHundredTimes();
+        //writeToFileTestStringHundredTimes();
+        fileExtensionsInFolder("f:\\developer\\first quarter\\Introduction to web technologies\\seminar_3\\");
 
     }
 
@@ -44,5 +44,22 @@ public class Seminar2 {
         }
 
     }
+
+    private static void fileExtensionsInFolder(String pathDir) {
+        String[] filesNamesFromDir = convertPathToNamesArray(pathDir);
+        int i = 1;
+        for (String fileName : filesNamesFromDir) {
+            fileName = fileName.split("\\.")[1];
+            System.out.printf("%d Расширение файла: %s \n", i, fileName);
+            i++;
+        }
+
+    }
+
+    private static String[] convertPathToNamesArray(String path) {
+        File dir = new File(path);
+        return dir.list();
+    }
+
 
 }
