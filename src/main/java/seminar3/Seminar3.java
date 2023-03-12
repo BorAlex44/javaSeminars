@@ -5,8 +5,42 @@ import java.util.*;
 public class Seminar3 {
     public static void main(String[] args) {
         //removingEvenElemFromArray();
-        findMinMaxAverageFromArray();
+        //findMinMaxAverageFromArray();
+        removingNumbersFromArray();
 
+    }
+
+    private static void removingNumbersFromArray() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("Hello");
+        arrayList.add("5");
+        arrayList.add("15");
+        arrayList.add("World");
+        arrayList.add("10");
+        System.out.println(arrayList);
+        int i = 0;
+        while (i < arrayList.size()){
+            if (isNumeric(arrayList.get(i))){
+                arrayList.remove(i);
+            } else{
+                i++;
+            }
+        }
+        System.out.println(arrayList);
+    }
+
+    public static boolean isNumeric(String string) {
+        if(string == null || string.equals("")) {
+            System.out.println("Строка не найдена!!!!!");
+            return false;
+        }
+        try {
+            Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException ignored) {
+
+        }
+        return false;
     }
 
     private static void findMinMaxAverageFromArray() {
